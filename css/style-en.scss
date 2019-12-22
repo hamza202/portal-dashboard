@@ -5,12 +5,15 @@ $mainColor: #107BA9;
 @import "scss/_variables.scss";
 @import "scss/mixins/_breakpoints.scss";
 @import "fontawesome-all.css";
+@import "bootstrap-datepicker.css";
 @import "mmenu.css";
+
 @for $j from 10 to 31 {
   .fs-#{$j} {
     font-size: $j+px;
   }
 }
+
 //sitting
 a {
   text-decoration: none;
@@ -23,6 +26,10 @@ a {
 
 
 //Extend
+%my-shadow {
+  box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.5);
+}
+
 %scale-hover {
   img {
     @extend %transition5;
@@ -122,7 +129,7 @@ a {
 }
 
 //Classes
-.line-hover{
+.line-hover {
   @extend %line-hover
 }
 
@@ -148,6 +155,10 @@ a {
 
 .fw-900 {
   font-weight: 900 !important;
+}
+
+.my-shadow {
+  @extend %my-shadow
 }
 
 /*btn-4 Start*/
@@ -180,44 +191,60 @@ a {
   left: 120%;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-.mm-navbar{
+
+.mm-navbar {
   padding: 14px;
-  img{
-    max-width: 200px;
+
+  img {
+    max-width: 220px;
   }
+
+  background-color: #fff;
 }
-.top-section{
+
+.mm-panel {
+  background-color: #fff;
+}
+
+.top-section {
   min-height: 300px;
   background: url(../images/top-bg.jpg) no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   position: relative;
-  &:before{
+
+  &:before {
     content: '';
     display: block;
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
-header{
+
+header {
   position: relative;
-  a.menu-btn{
+
+  a.menu-btn {
     position: absolute;
     left: 15px;
     top: 20px;
-    i{
+
+    i {
       font-size: 29px;
       color: #fff;
     }
   }
-  .header-list{
-    li{
+
+  .header-list {
+    li {
       position: relative;
-      &:not(:last-child){
+
+      &:not(:last-child) {
         margin-right: 24px;
-        &:before{
+
+        &:before {
           content: '';
           display: block;
           position: absolute;
@@ -228,14 +255,18 @@ header{
           top: 0;
         }
       }
-      a{
+
+      a {
         color: #fff;
         font-size: 20px;
-        &:hover{
+
+        &:hover {
           color: #e4e4e4;
         }
-        &.not-link{
+
+        &.not-link {
           position: relative;
+
           &.active {
             &:after {
               position: absolute;
@@ -254,37 +285,47 @@ header{
     }
   }
 }
+
 .mm-wrapper_opening a.menu-btn {
   opacity: 0;
   top: -100px;
 }
-.mm-navbar{
+
+.mm-navbar {
   border-bottom: 0;
 }
-.mm-navbar_sticky{
+
+.mm-navbar_sticky {
   display: none;
 }
-.mm-btn{
+
+.mm-btn {
   width: 40px;
 }
-.mm-btn_close:before{
+
+.mm-btn_close:before {
   right: 15px;
 }
-.mm-btn_close:after, .mm-btn_close:before{
+
+.mm-btn_close:after, .mm-btn_close:before {
   width: 7px;
   height: 7px;
 }
-.top-text-container{
-  h3{
-    font-size:45px;
+
+.top-text-container {
+  h3 {
+    font-size: 45px;
     font-weight: 400;
   }
-  .top-search-container{
+
+  .top-search-container {
     position: relative;
-    input{
+
+    input {
       padding-right: 31px;
       color: white;
       background-color: rgba(#fff, $alpha: 0.5);
+
       &::-webkit-input-placeholder {
         color: white;
       }
@@ -297,7 +338,8 @@ header{
         color: white;
       }
     }
-    i{
+
+    i {
       color: white;
       font-size: 17px;
       position: absolute;
@@ -308,11 +350,159 @@ header{
   }
 }
 
-@include media-breakpoint-up(lg){
-  .col-lg-20{
+.dashboard-link-container {
+  display: block;
+  max-width: 190px;
+  margin: 0 auto 15px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  @extend %my-shadow;
+
+  &:after {
+    @extend %transition3;
+    position: absolute;
+    content: '';
+    display: block;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    bottom: 0;
+    background: black;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(147, 147, 147, 0.1769082633) 69%);
+  }
+
+  .d-link-text {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+    z-index: 3;
+    transition: all ease-in-out 0.5s;
+    opacity: 1;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+}
+
+@include media-breakpoint-up(lg) {
+  .col-lg-20 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 20% ;
-    flex: 0 0 20% ;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
     max-width: 20%;
   }
+}
+
+.content {
+  background: #f5f5f5 !important;
+}
+
+.profile-media {
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+}
+
+.profile-card {
+  margin-top: 10px;
+  .profile-card-item {
+    &:not(:last-child){
+      margin-bottom: 20px;
+    }
+    h4{
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .my-link {
+      color: $mainColor;
+      @extend %line-hover;
+      padding-bottom: 3px;
+    }
+  }
+}
+.datepicker table tr td.today{
+  background-color: $mainColor !important;
+  color: #fff;
+  background-image: none;
+  position: relative;
+  &:before{
+    border-bottom-color: #ffffff;
+    border-top-color: rgba(0,0,0,0.2);
+    content: '';
+    display: inline-block;
+    border: solid transparent;
+    border-width: 0 0 7px 7px;
+    border-bottom-color: #ffffff;
+    border-top-color: rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+  }
+  &:hover{
+    background-image: none;
+    background-color: $mainColor !important;
+    color: #fff !important;
+  }
+}
+.datepicker table tr td{
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+.mm-panel{
+  @extend %scroll-style
+}
+.datepicker-inline{
+  width: 100%;
+  @extend %my-shadow;
+}
+footer{
+  background-color: #fff;
+  @extend %my-shadow;
+  .list-inline-item:not(:last-child) {
+    margin-right: 1rem;
+  }
+  .footer-list{
+    li{
+      position: relative;
+      a{
+        color: #000;
+        padding-bottom: 3px;
+      }
+      &:not(:last-child){
+        &:before{
+          position: absolute;
+          content: '';
+          display: block;
+          right: -0.5rem;
+          height: 73%;
+          width: 1px;
+          top: 3px;
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
+}
+body{
+  overflow-x: hidden !important;
 }

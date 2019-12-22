@@ -12,7 +12,7 @@ new Mmenu(document.querySelector('#menu'),
         },
         navbars: [
             {
-                content: ['<div><img src="../images/logo.png"></div>', 'close']
+                content: ['<div><img src="./images/logo.png"></div>', 'close']
             }
         ]
     }
