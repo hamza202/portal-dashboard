@@ -6,6 +6,7 @@ $mainColor: #107BA9;
 @import "scss/mixins/_breakpoints.scss";
 @import "fontawesome-all.css";
 @import "bootstrap-datepicker.css";
+@import "daterangepicker.css";
 @import "mmenu.css";
 
 @for $j from 10 to 31 {
@@ -111,7 +112,7 @@ a {
 %scroll-style {
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #F5F5F5;
   }
 
@@ -121,7 +122,7 @@ a {
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: $mainColor;
   }
@@ -505,4 +506,146 @@ footer{
 }
 body{
   overflow-x: hidden !important;
+}
+.horizontal-tab{
+  @include media-breakpoint-down(lg){
+    margin-bottom: 30px;
+    a{
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  a.nav-link{
+    border-left: 5px solid transparent;
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
+    @extend %my-shadow;
+    &.active{
+      background-color: #fff;
+      border-left-color: $mainColor;
+      color: #000;
+    }
+  }
+}
+.my-table{
+  margin-bottom: 0;
+  tr{
+    text-align: center;
+    th{
+      background-color: $mainColor;
+      color: #fff;
+      border-top: 0;
+      font-weight: 500;
+      &:first-child{
+        border-top-left-radius:5px ;
+      }
+      &:last-child{
+        border-top-right-radius:5px ;
+      }
+      &:not(:last-child){
+        border-right: 1px solid rgba(255,255,255,0.5);
+      }
+    }
+    td{
+      background-color: #fff;
+    }
+    &:last-child{
+      td{
+        &:first-child{
+          border-bottom-left-radius:5px ;
+        }
+        &:last-child{
+          border-bottom-right-radius:5px ;
+        }
+      }
+    }
+  }
+}
+.my-table-container{
+  max-height: 400px;
+  overflow-y: scroll;
+  padding-right: 3px;
+  @extend %scroll-style;
+}
+.green-color{
+  color: #18AA08;
+}
+.red-color{
+  color: #F50810;
+}
+.yellow-color{
+  color: #ffc107;
+}
+.main-color{
+  color: $mainColor;
+}
+.my-card{
+  background-color: #fff;
+  border-radius: 5px;
+}
+.btn-primary{
+  background-color: $mainColor;
+}
+.add-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  border: 0;
+  outline: 0;
+  background-color: $mainColor;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  &:hover{
+    color: white;
+    background-color: rgba($mainColor, 0.9);
+  }
+  @include media-breakpoint-down(sm){
+    margin:0 auto;
+  }
+}
+body.modal-open .mm-slideout{
+  z-index: 1000;
+}
+.modal-backdrop{
+  display: none;
+}
+.modal-open .modal{
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: block;
+    background-color: rgba(#000, 0.8);
+    z-index: 101;
+  }
+  .modal-dialog{
+    z-index: 1111;
+  }
+}
+#newPermissionModal .modal-dialog-centered{
+  margin-top: -30px;
+}
+.small-th-fs{
+  th{
+    font-size: 14px;
+    padding: 10px 3px;
+  }
+  td{
+    font-size: 14px;
+  }
 }

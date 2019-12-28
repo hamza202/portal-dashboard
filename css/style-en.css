@@ -1,6 +1,7 @@
 @import url(bootstrap.min.css);
 @import url(fontawesome-all.css);
 @import url(bootstrap-datepicker.css);
+@import url(daterangepicker.css);
 @import url(mmenu.css);
 .fs-10 {
   font-size: 10px; }
@@ -70,7 +71,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.my-shadow, .dashboard-link-container, .datepicker-inline, footer {
+.my-shadow, .dashboard-link-container, .datepicker-inline, footer, .horizontal-tab a.nav-link {
   box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.5); }
 
 a, .line-hover:before, .profile-card .profile-card-item .my-link:before, .dashboard-link-container:after {
@@ -96,15 +97,15 @@ a, .line-hover:before, .profile-card .profile-card-item .my-link:before, .dashbo
     left: 0;
     right: auto; }
 
-.mm-panel::-webkit-scrollbar-track {
+.mm-panel::-webkit-scrollbar-track, .my-table-container::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #F5F5F5; }
-.mm-panel::-webkit-scrollbar {
+.mm-panel::-webkit-scrollbar, .my-table-container::-webkit-scrollbar {
   width: 5px;
   background-color: #F5F5F5; }
-.mm-panel::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+.mm-panel::-webkit-scrollbar-thumb, .my-table-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #107BA9; }
 
@@ -370,5 +371,121 @@ footer {
 
 body {
   overflow-x: hidden !important; }
+
+@media (max-width: 1199.98px) {
+  .horizontal-tab {
+    margin-bottom: 30px; }
+    .horizontal-tab a {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto; } }
+.horizontal-tab a.nav-link {
+  border-left: 5px solid transparent;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  text-align: center; }
+  .horizontal-tab a.nav-link:not(:last-child) {
+    margin-bottom: 10px; }
+  .horizontal-tab a.nav-link.active {
+    background-color: #fff;
+    border-left-color: #107BA9;
+    color: #000; }
+
+.my-table {
+  margin-bottom: 0; }
+  .my-table tr {
+    text-align: center; }
+    .my-table tr th {
+      background-color: #107BA9;
+      color: #fff;
+      border-top: 0;
+      font-weight: 500; }
+      .my-table tr th:first-child {
+        border-top-left-radius: 5px; }
+      .my-table tr th:last-child {
+        border-top-right-radius: 5px; }
+      .my-table tr th:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.5); }
+    .my-table tr td {
+      background-color: #fff; }
+    .my-table tr:last-child td:first-child {
+      border-bottom-left-radius: 5px; }
+    .my-table tr:last-child td:last-child {
+      border-bottom-right-radius: 5px; }
+
+.my-table-container {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding-right: 3px; }
+
+.green-color {
+  color: #18AA08; }
+
+.red-color {
+  color: #F50810; }
+
+.yellow-color {
+  color: #ffc107; }
+
+.main-color {
+  color: #107BA9; }
+
+.my-card {
+  background-color: #fff;
+  border-radius: 5px; }
+
+.btn-primary {
+  background-color: #107BA9; }
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  border: 0;
+  outline: 0;
+  background-color: #107BA9;
+  color: #fff;
+  font-size: 25px;
+  text-align: center; }
+  .add-btn:hover {
+    color: white;
+    background-color: rgba(16, 123, 169, 0.9); }
+  @media (max-width: 767.98px) {
+    .add-btn {
+      margin: 0 auto; } }
+
+body.modal-open .mm-slideout {
+  z-index: 1000; }
+
+.modal-backdrop {
+  display: none; }
+
+.modal-open .modal:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 101; }
+.modal-open .modal .modal-dialog {
+  z-index: 1111; }
+
+#newPermissionModal .modal-dialog-centered {
+  margin-top: -30px; }
+
+.small-th-fs th {
+  font-size: 14px;
+  padding: 10px 3px; }
+.small-th-fs td {
+  font-size: 14px; }
 
 /*# sourceMappingURL=style-en.css.map */

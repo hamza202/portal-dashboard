@@ -17,3 +17,27 @@ new Mmenu(document.querySelector('#menu'),
         ]
     }
 );
+
+//Date Range
+
+$('.daterange').daterangepicker();
+
+$(function() {
+    $('.dateTimeInput').daterangepicker({
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: true,
+        locale: {
+            format: 'M/DD/YYYY hh:mm A'
+        }
+    });
+});
+$(function() {
+    $('.dateInput').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        locale: {
+            format: 'M/DD/YYYY'
+        }
+    });
+});
