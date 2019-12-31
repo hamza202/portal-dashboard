@@ -130,6 +130,9 @@ a {
 }
 
 //Classes
+.ellipsis{
+  @extend %ellipsis;
+}
 .line-hover {
   @extend %line-hover
 }
@@ -161,7 +164,9 @@ a {
 .my-shadow {
   @extend %my-shadow
 }
-
+.mw-200{
+  max-width: 200px;
+}
 /*btn-4 Start*/
 .btn-4 {
   overflow: hidden;
@@ -506,6 +511,7 @@ footer{
 }
 body{
   overflow-x: hidden !important;
+  padding-right: 0 !important;
 }
 .horizontal-tab{
   @include media-breakpoint-down(lg){
@@ -647,5 +653,45 @@ body.modal-open .mm-slideout{
   }
   td{
     font-size: 14px;
+  }
+}
+.balance-container{
+  margin-top: 30px;
+  text-align: center;
+
+  .balance-card{
+    margin: 0 auto;
+    display: flex;
+    height: 100px;
+    max-width: 150px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    @extend %my-shadow;
+    h3{
+      font-weight: 400;
+    }
+  }
+}
+.blue-color{
+  color: $mainColor;
+}
+.blue-border.sender-list .d-card {
+  border-left: 7px solid $mainColor;
+  background-color: #f0f8ff;
+  border-radius: 7px;
+  padding: 10px 10px;
+  margin-bottom: 15px;
+  div{
+    &:nth-child(2){
+      max-width: 235px;
+      p{
+        @extend %ellipsis;
+      }
+    }
+  }
+  p{
+    margin:0;
   }
 }

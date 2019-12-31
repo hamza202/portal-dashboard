@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Time Off</title>
     <link rel="stylesheet" href="css/style-en.css">
 
 </head>
@@ -67,7 +67,7 @@
                 <div class="col-12">
                     <ul class="list-inline d-flex align-items-center">
                         <li class="list-inline-item">
-                            <a href="#" class="fs-20">
+                            <a href="index.html" class="fs-20">
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
@@ -88,6 +88,8 @@
                          aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
                            role="tab" aria-controls="v-pills-home" aria-selected="true">My Time Off</a>
+                        <a class="nav-link" id="timeOffBalance-tab" data-toggle="pill" href="#timeOffBalance"
+                           role="tab" aria-controls="v-pills-profile" aria-selected="false">Time Off Balance</a>
                         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
                            role="tab" aria-controls="v-pills-profile" aria-selected="false">Time Off Requests</a>
                         <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
@@ -210,6 +212,77 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="timeOffBalance" role="tabpanel"
+                             aria-labelledby="timeOffBalance-tab">
+                            <div class="my-card p-3">
+                                <h5 class="fw-500 main-color">
+                                    Time Off Balance
+                                </h5>
+                                <form action="#">
+                                    <div class="row justify-content-sm-between justify-content-center text-sm-left text-center">
+                                        <div class="col-sm-auto col-12">
+                                            <div class="row align-items-center text-left justify-content-center mb-2 mb-sm-0">
+                                                <div class="col-sm-auto pr-0">
+                                                    <p class="m-0">Leave Type:</p>
+                                                </div>
+                                                <div class="col-sm-auto pl-1">
+                                                    <select class="custom-select my-1 mr-sm-2">
+                                                        <option selected="">Legal Leave</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-auto col-12">
+                                            <button class="btn btn-primary  px-5" type="submit">
+                                                calculate
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="balance-container">
+                                            <div class="balance-card">
+                                                <h3 class="blue-color">
+                                                    13 Day
+                                                </h3>
+                                            </div>
+                                            <p class="m-0 mt-1">
+                                                Remaining Days
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="balance-container">
+                                            <div class="balance-card">
+                                                <h3 class="green-color">
+                                                    10 Day
+                                                </h3>
+                                            </div>
+                                            <p class="m-0 mt-1">
+                                                Under Processing
+                                                Days
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="balance-container">
+                                            <div class="balance-card">
+                                                <h3 class="red-color">
+                                                    5 Day
+                                                </h3>
+                                            </div>
+                                            <p class="m-0 mt-1">
+                                                Used Days
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
@@ -814,6 +887,29 @@
         leftArrow: "<i class='fa fa-angle-left'></i>",
         rightArrow: "<i class='fa fa-angle-right'></i>"
     });
+    $('.daterange').daterangepicker();
+
+    $(function() {
+        $('.dateTimeInput').daterangepicker({
+            timePicker: true,
+            singleDatePicker: true,
+            showDropdowns: true,
+            locale: {
+                format: 'M/DD/YYYY hh:mm A'
+            }
+        });
+    });
+    $(function() {
+        $('.dateInput').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            drops: "up",
+            locale: {
+                format: 'M/DD/YYYY'
+            }
+        });
+    });
+
 </script>
 </body>
 </html>
